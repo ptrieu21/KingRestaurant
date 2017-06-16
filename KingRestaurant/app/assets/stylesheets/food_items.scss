@@ -1,3 +1,39 @@
-// Place all the styles related to the FoodItems controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.post {
+	min-height: 320px;
+	min-width: 500px;
+	margin-right: 15px;
+	background-color: #fff;
+	border-radius: 2px;
+	position: relative;
+}
+
+.post-image {
+	width: 500px;
+	float: left;
+}
+
+.post-main {
+	max-width: 610px;
+	float: right;
+	padding: 15px 15px 0px 15px;
+}
+
+.post-description, .post-footer {
+	border-top: #f8f8f8 1px solid;
+}
+
+.post-description {
+	text-align: justify;
+	height: 200px;
+	overflow: auto;
+
+}
+
+.post-header{
+	text-align: center;
+}
+
+
+.post-footer{
+	padding-top: 15px;
+}

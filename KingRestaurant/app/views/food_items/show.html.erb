@@ -1,19 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @food_item.name %>
-</p>
+<div class="post row">
+	<div class="post-img">
+		<%= image_tag(@food_item.img_url) %>
+	</div>
+	<div class="post-main">
+		<div class="post-header">
+			<h2><%= @food_item.name %></h2>
+		</div>
+		<div class="post-description">
+			<strong>Description: </strong><%= @food_item.description %>
+		</div>
+		
+		<div class="post-footer">
+			<h4><span class="badge badge-default"><%= number_to_currency(@food_item.price, format: "%n%u", unit:"VND") %></span></h4>			
+		</div>
+	</div>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @food_item.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @food_item.price %>
-</p>
-
-<%= link_to 'Edit', edit_food_item_path(@food_item) %> |
-<%= link_to 'Back', food_items_path %>

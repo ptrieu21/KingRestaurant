@@ -17,7 +17,7 @@
 				<div class="item-title"><%= food_item.name %></div>
 			<% end %>
 			<div class="item-description"><%= truncate(food_item.description, length: 100) %></div>
-			<div class="item-count"><%= number_to_currency(food_item.price, format: "%n%u", unit:"VND") %></div>
+			<div class="item-count"><span class="badge badge-default"><%= number_to_currency(food_item.price, format: "%n%u", unit:"VND") %></span></div>
 		</div>
 	<% end %>
 </div>
