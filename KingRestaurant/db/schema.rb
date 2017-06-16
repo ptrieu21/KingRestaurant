@@ -10,19 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170614050628) do
+ActiveRecord::Schema.define(version: 20170615033356) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "food_item_sections", force: :cascade do |t|
-    t.integer  "food_item_id"
-    t.integer  "section_id"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-    t.index ["food_item_id"], name: "index_food_item_sections_on_food_item_id", using: :btree
-    t.index ["section_id"], name: "index_food_item_sections_on_section_id", using: :btree
-  end
 
   create_table "food_items", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +21,9 @@ ActiveRecord::Schema.define(version: 20170614050628) do
     t.decimal  "price"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "section_id"
+    t.string   "img_url"
+    t.index ["section_id"], name: "index_food_items_on_section_id", using: :btree
   end
 
   create_table "sections", force: :cascade do |t|
@@ -38,6 +32,5 @@ ActiveRecord::Schema.define(version: 20170614050628) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "food_item_sections", "food_items"
-  add_foreign_key "food_item_sections", "sections"
+  add_foreign_key "food_items", "sections"
 end
