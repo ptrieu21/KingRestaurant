@@ -13,5 +13,9 @@ class PagesController < ApplicationController
 		else
 			@food_items = FoodItem.all
 		end
+
+		if params[:sort_type]
+			@food_items = @food_items.order("#{params[:sort_type]} #{params[:order]}")
+		end
 	end
 end

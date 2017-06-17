@@ -1,8 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<div class="post row">
+<div class="post rounded">
 	<div class="post-img">
-		<%= image_tag(@food_item.img_url) %>
+		<%= image_tag(@food_item.img_url, class: "rounded-left") %>
 	</div>
 	<div class="post-main">
 		<div class="post-header">
@@ -13,7 +13,9 @@
 		</div>
 		
 		<div class="post-footer">
-			<h4><span class="badge badge-default"><%= number_to_currency(@food_item.price, format: "%n%u", unit:"VND") %></span></h4>			
+		<h3>
+			<span class="badge badge-default"><%= number_to_currency(@food_item.price, format: "%n%u", unit:"VND") %></span>
+			<button class="btn btn-outline-primary order"><strong>Add order</strong></button>			</h3>
 		</div>
 	</div>
 </div>

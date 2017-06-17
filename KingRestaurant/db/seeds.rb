@@ -9,7 +9,7 @@ Section.all.each do |item|
 				name: Faker::Name.name,
 				description: Faker::Lorem.paragraph,
 				price: rand(1..100)*1000,
-				img_url: Faker::LoremPixel.image("500x320", false, 'food', nil, Faker::Lorem.word),
+				img_url: "food/#{rand(1..30)}.jpg",
 				section_id: item.id
 				)
 	end

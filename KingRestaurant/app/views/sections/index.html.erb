@@ -1,0 +1,51 @@
+<h1 align="center">Menu</h1>
+
+<div class="menu-navbar">
+	<div class="btn-group" style="float: left" role="group">
+		<%= link_to "All", menu_path, method: :get, class: "btn btn-secondary #{'active' unless params[:section_id].present?}", role: "button" %>
+		<% @sections.each do |section| %>
+			 <%= link_to section.name, menu_path(section_id: section.id), method: :get, class: "btn btn-secondary #{'active' if params[:section_id] == section.id.to_s}", role: "button" %>
+		<% end %>
+	</div>
+	
+	<%= form_tag nil, method: 'get' do%>
+		<%= hidden_field_tag :section_id, params[:section_id] %>
+		<div class="dropdown" style="float:right">
+	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    Sorted
+	  </button>
+	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	    <%= link_to "Alphabetical", request.query_parameters.merge({sort_type:"name", order:"asc"}), class: "dropdown-item" %>
+	    <%= link_to "Price low to high", request.query_parameters.merge({sort_type:"price", order:"asc"}), class: "dropdown-item" %>
+	    <%= link_to "Price high to low", request.query_parameters.merge({sort_type:"price", order:"desc"}), class: "dropdown-item" %>
+	  </div>
+	</div>
+	<% end %>
+</div>
+	
+	
+	
+
+<div class="content-container">
+	<% @food_items.each do |food_item| %>
+		<div class="content-item rounded">
+
+			<%= link_to food_item do %>
+				<%= image_tag(food_item.img_url, width: "100%", class: "avatar rounded-top")  %>
+			<% end %>
+
+			<%= link_to food_item do %>
+				<div class="item-title"><%= food_item.name %></div>
+			<% end %>
+			
+			<div class="item-description"><%= truncate(food_item.description, length: 100) %></div>
+
+			<div class="item-footer">
+				<div class="badge badge-default item-price"><%= number_to_currency(food_item.price, format: "%n%u", unit:"VND") %></div>
+				<div class="item-order"><button class="btn btn-outline-primary btn-sm">Order</button></div>
+			</div>
+
+		</div>
+	<% end %>
+</div>
+
