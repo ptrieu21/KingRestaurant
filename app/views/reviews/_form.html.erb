@@ -1,4 +1,12 @@
 <%= form_for [@food_item, review], :html => {class: "form-horizontal", role: "form"} do |f| %>
+<div class="form-group">
+    <div class="control-label">  
+      <%= f.label :rate %>
+    </div>
+    <div>
+      <%= f.select(:rate, [*1..10].map(&:to_s), {include_blank: "Rate this food item"}, { :class => 'custom-select' }) %>
+    </div>
+  </div>
 
   <div class="form-group">
     <div class="control-label">  

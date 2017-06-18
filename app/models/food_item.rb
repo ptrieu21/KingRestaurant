@@ -12,6 +12,14 @@ class FoodItem < ApplicationRecord
 		where("name ILIKE ?", "%#{search}%")
 	end
 
+	def average_rate
+		if (reviews.count > 0)
+			(reviews.collect(&:rate).sum/reviews.count).round(1)
+		else
+			nil
+		end
+	end
+
 	private
 		def ensure_not_referenced_by_any_line_item
 			unless line_items.empty?

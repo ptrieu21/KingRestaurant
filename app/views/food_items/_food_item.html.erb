@@ -14,9 +14,12 @@
 		<div class="item-count align-middle">
 			<%= image_tag("views.png", height: "10")%>
 			<%= food_item.impressionist_count %>
-				&nbsp;
+			&nbsp;
 			<%= image_tag("comments.png", height: "10")%>
 			<%= food_item.reviews.count %>
+			&nbsp;
+			<%= image_tag("star.png", height: "12" )%>
+      <%= food_item.average_rate%>
 
 		</div>
 		

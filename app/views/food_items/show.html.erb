@@ -23,6 +23,9 @@
             &nbsp;&nbsp;
             <%= image_tag("comments.png", height: "10")%>
             <%= @food_item.reviews.count %>
+            &nbsp;&nbsp;
+            <%= image_tag("star.png", height: "16" )%>
+            <%= @food_item.average_rate%>
     
         	</p>
         </div>
