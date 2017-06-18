@@ -11,8 +11,8 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-tether', '>= 1.3.3'
 end
 
-#Search engine
-#gem 'elasticsearch', '~> 5.0', '>= 5.0.4'
+#Views count
+gem 'impressionist'
 
 #Random name generator
 gem 'faker', '~> 1.7', '>= 1.7.3'

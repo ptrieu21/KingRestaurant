@@ -1,55 +1,19 @@
-.post {
-	min-height: 320px;
-	min-width: 500px;
-	width:100%;
-	margin-right: 15px;
-	background-color: #fff;
-	border-radius: 2px;
-	position: relative;
-	display: inline-flex;
-	flex-wrap: wrap;
-}
 
 .post-img {
-	width: 500px;
-	float: left;
+	min-height: 250px;
+	height: 100%;
+	background-size: cover;
 }
 
-.post-main {
-	max-width: 610px;
-	width: auto;
-	float: right;
-	padding: 15px 15px 0px 15px;
-}
-
-.post-description, .post-footer, {
-	border-top: #f8f8f8 1px solid;
+.post-body {
+	padding-right: 30px;
 }
 
 
 .post-description {
-	text-align: justify;
-	height: 195px;
 	overflow: auto;
-
 }
 
-.post-header{
-	
-}
-
-
-.post-footer{
-	padding-top: 15px;
-	width: 100%;
-
-}
-
-.post-footer.badge{
-	float: left;
-	font-size: 15px;
-}
-
-.order{
-	float:right;
+.review {
+	margin-top: 20px;
 }

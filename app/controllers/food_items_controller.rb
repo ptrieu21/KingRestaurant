@@ -1,6 +1,6 @@
 class FoodItemsController < ApplicationController
   before_action :set_food_item, only: [:show, :edit, :update, :destroy]
-
+  impressionist :actions=>[:show, :index]
   # GET /food_items
   # GET /food_items.json
   def index
@@ -10,6 +10,7 @@ class FoodItemsController < ApplicationController
   # GET /food_items/1
   # GET /food_items/1.json
   def show
+    impressionist(@food_item)
   end
 
   # GET /food_items/new

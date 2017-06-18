@@ -5,12 +5,21 @@
 	<% end %>
 
 	<%= link_to food_item do %>
-		<div class="item-title"><%= food_item.name %></div>
+		<div class="item-title"><%= food_item.name %> - <%= food_item.cuisine.name %></div>
 	<% end %>
 	
 	<div class="item-description"><%= truncate(food_item.description, length: 100) %></div>
 
 	<div class="item-footer">
+		<div class="item-count align-middle">
+			<%= image_tag("views.png", height: "10")%>
+			<%= food_item.impressionist_count %>
+				&nbsp;
+			<%= image_tag("comments.png", height: "10")%>
+			<%= food_item.reviews.count %>
+
+		</div>
+		
 		<%= button_to number_to_currency(food_item.price, locale: :vi), line_items_path(food_item_id: food_item), {form_class: 'form item-order', class: "btn btn-outline-primary btn-sm", remote: true} %>
 	</div>
 

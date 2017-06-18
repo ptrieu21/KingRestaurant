@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  content: MyText
+  food_item: one
+
+two:
+  username: MyString
+  content: MyText
+  food_item: two

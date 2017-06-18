@@ -8,6 +8,7 @@
 		<% end %>
 	</div>
 	
+	<%# Select Cuisine %>
 	<%= form_tag nil, method: 'get' do%>
 		<%= hidden_field_tag :section_id, params[:section_id] %>
 		<div class="dropdown" style="float:right">
@@ -16,8 +17,25 @@
 	  </button>
 	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
 	    <%= link_to "Alphabetical", request.query_parameters.merge({sort_type:"name", order:"asc"}), class: "dropdown-item" %>
-	    <%= link_to "Price low to high", request.query_parameters.merge({sort_type:"price", order:"asc"}), class: "dropdown-item" %>
-	    <%= link_to "Price high to low", request.query_parameters.merge({sort_type:"price", order:"desc"}), class: "dropdown-item" %>
+	    <%= link_to "Least Price", request.query_parameters.merge({sort_type:"price", order:"asc"}), class: "dropdown-item" %>
+	    <%= link_to "Most Price", request.query_parameters.merge({sort_type:"price", order:"desc"}), class: "dropdown-item" %>
+	    <%= link_to "Most View", request.query_parameters.merge({sort_type:"views", order:"desc"}), class: "dropdown-item" %>
+
+	  </div>
+	</div>
+
+	<%# Select sort method %>
+	<% end %>
+	<%= form_tag nil, method: 'get' do%>
+		<%= hidden_field_tag :section_id, params[:section_id] %>
+		<div class="dropdown" style="float:right">
+	  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+	    Cuisine
+	  </button>
+	  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+	  	<% @cuisines.each do |cuisine| %>
+	    	<%= link_to cuisine.name, request.query_parameters.merge({cuisine_id: cuisine.id}), class: "dropdown-item" %>
+		   	<% end %>
 	  </div>
 	</div>
 	<% end %>

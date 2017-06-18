@@ -1,24 +1,57 @@
 
+<section>
+  <div class="card">
+    <div class="row">
 
-<div class="post rounded">
-	<div class="post-img">
-		<%= image_tag(@food_item.img_url, class: "rounded-left") %>
-	</div>
-	<div class="post-main">
-		<div class="post-header">
-			<h2><%= @food_item.name %></h2>
-		</div>
-		<div class="post-description">
-			<strong>Description: </strong><%= @food_item.description %>
-		</div>
-		
-		<div class="post-footer">
-		<h3>
-			<span class="badge badge-default"><%= number_to_currency(@food_item.price, format: "%n%u", unit:"VND") %></span>
-			<%= button_to 'Add order',line_items_path(food_item_id: @food_item), {form_class: 'form order', class: "btn btn-outline-primary", remote: true} %>
+      <div class="col-md-5">
+        <div class="card-img-top post-img">
+        	<style>
+					.post-img{
+						background: url(<%= asset_path @food_item.img_url %>) center no-repeat;
 						
-		</h3>
-		</div>
-	</div>
-</div>
+					}
+					</style>
+        </div>
+      </div>
 
+      <div class="col-md-7 post-body">
+        <div class="card-block">
+          <h2 class="card-title"><%= @food_item.name %> - <%= @food_item.cuisine.name %> </h2>
+          <p class="card-text">
+        		<%= image_tag("views.png", height: "10")%>
+						<%= @food_item.impressionist_count %>
+            &nbsp;&nbsp;
+            <%= image_tag("comments.png", height: "10")%>
+            <%= @food_item.reviews.count %>
+    
+        	</p>
+        </div>
+        <ul class = "list-group list-group-flush">
+          <li class="list-group-item">
+	          <p class="card-text post-description"><%= @food_item.description %></p>
+					</li>
+					<li class="list-group-item">
+            <%= number_to_currency(@food_item.price, format: "%n%u", unit:"VND") %>
+					</li>
+
+					<li class="list-group-item">
+	          <%= button_to 'Add order',line_items_path(food_item_id: @food_item), {form_class: 'form order', class: "btn btn-outline-primary", remote: true} %>
+					</li>
+				</ul>
+    </div>
+  </div>
+</section>
+
+<section class="review">
+  <div class="card">
+    <ul class="list-group list-group-flush">
+      
+        <%= render @food_item.reviews %>
+      
+    </ul>
+
+    <div class="card-block">
+      <%= render "reviews/form", review: Review.new %>
+    </div>
+  </div>
+</section>
