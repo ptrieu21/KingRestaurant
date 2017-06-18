@@ -1,0 +1,51 @@
+<h1> Thanks for your order </h1>
+<h5> Your order at: <%= @order.updated_at %> </h5>
+
+<br><br>
+
+<div class="row">
+    <div class="col-md-7">
+      <table class="table table-bordered">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Quantity</th>
+						<th>Unit price</th>
+						<th>Total</th>
+					</tr>
+				</thead>
+
+				<div id="line-item">
+					<%= render(@order.line_items) %>
+				</div>
+
+				<tfoot>
+					<tr> 
+						<td colspan="3" align="center">Total</td>
+						<td><%= number_to_currency(@order.line_items.map(&:total_price).sum, locale: :vi) %></td>
+					</tr>
+				</tfoot>
+		</table>
+    </div>
+
+    <div class="col-md-5">
+	    <div class="card">
+		    <div class="card-block">
+					<p>
+					  <strong>Name:</strong>
+					  <%= @order.name %>
+					</p>
+
+					<p>
+					  <strong>Address:</strong>
+					  <%= @order.address %>
+					</p>
+
+					<p>
+					  <strong>Email:</strong>
+					  <%= @order.email %>
+					</p>
+				</div>
+			</div>
+  	</div>
+</div>

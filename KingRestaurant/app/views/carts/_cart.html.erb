@@ -1,0 +1,21 @@
+<table class="table table-bordered" style="background-color: #ffff">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Quantity</th>
+			<th>Unit price</th>
+			<th>Total</th>
+		</tr>
+	</thead>
+
+	<div id="line-item">
+		<%= render(@cart.line_items) %>
+	</div>
+
+	<tfoot>
+		<tr> 
+			<td colspan="3" align="center">Total</td>
+			<td><%= number_to_currency(@cart.total_price, locale: :vi) %></td>
+		</tr>
+	</tfoot>
+</table>

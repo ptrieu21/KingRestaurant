@@ -12,7 +12,7 @@ source 'https://rails-assets.org' do
 end
 
 #Search engine
-gem 'elasticsearch', '~> 5.0', '>= 5.0.4'
+#gem 'elasticsearch', '~> 5.0', '>= 5.0.4'
 
 #Random name generator
 gem 'faker', '~> 1.7', '>= 1.7.3'

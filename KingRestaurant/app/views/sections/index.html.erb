@@ -28,24 +28,7 @@
 
 <div class="content-container">
 	<% @food_items.each do |food_item| %>
-		<div class="content-item rounded">
-
-			<%= link_to food_item do %>
-				<%= image_tag(food_item.img_url, width: "100%", class: "avatar rounded-top")  %>
-			<% end %>
-
-			<%= link_to food_item do %>
-				<div class="item-title"><%= food_item.name %></div>
-			<% end %>
-			
-			<div class="item-description"><%= truncate(food_item.description, length: 100) %></div>
-
-			<div class="item-footer">
-				<div class="badge badge-default item-price"><%= number_to_currency(food_item.price, format: "%n%u", unit:"VND") %></div>
-				<div class="item-order"><button class="btn btn-outline-primary btn-sm">Order</button></div>
-			</div>
-
-		</div>
+		<%= render(food_item) %>
 	<% end %>
 </div>
 

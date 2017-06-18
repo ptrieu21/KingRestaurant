@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+
 
 <div class="post rounded">
 	<div class="post-img">
@@ -15,7 +15,9 @@
 		<div class="post-footer">
 		<h3>
 			<span class="badge badge-default"><%= number_to_currency(@food_item.price, format: "%n%u", unit:"VND") %></span>
-			<button class="btn btn-outline-primary order"><strong>Add order</strong></button>			</h3>
+			<%= button_to 'Add order',line_items_path(food_item_id: @food_item), {form_class: 'form order', class: "btn btn-outline-primary", remote: true} %>
+						
+		</h3>
 		</div>
 	</div>
 </div>
