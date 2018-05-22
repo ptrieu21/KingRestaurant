@@ -1,15 +1,10 @@
 source 'https://rubygems.org'
+git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-git_source(:github) do |repo_name|
-  repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
-  "https://github.com/#{repo_name}.git"
-end
+ruby '2.5.0'
 
 #Bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha6'
-source 'https://rails-assets.org' do
-  gem 'rails-assets-tether', '>= 1.3.3'
-end
+gem 'bootstrap', '~> 4.1.1'
 
 #Views count
 gem 'impressionist'
@@ -18,7 +13,7 @@ gem 'impressionist'
 gem 'faker', '~> 1.7', '>= 1.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.3'
+gem 'rails', '~> 5.2.0'
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.18'
 # Use Puma as the app server
