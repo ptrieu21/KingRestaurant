@@ -1,1 +1,1 @@
-<%= link_to "Order(#{@cart.line_items.sum("quantity")})", new_order_path, method: :get %>
+<%= link_to "Cart(#{@cart.line_items.sum("quantity")})", my_cart_path, method: :get %>

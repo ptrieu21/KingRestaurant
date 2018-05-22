@@ -3,11 +3,13 @@ class ApplicationController < ActionController::Base
   include CurrentCart
   before_action :set_cart
 
-   def current_cart
+  def current_cart
     if !session[:cart_id].nil?
       Order.find(session[:cart_id])
     else
       Order.new
     end
   end
+
+  
 end

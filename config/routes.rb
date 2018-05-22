@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   resources :orders
   resources :line_items
-  resources :carts
+  resources :carts, only: [:destroy]
+  get '/my_cart', to: 'carts#show'
   resources :food_items  do  	
   	resources :reviews, only: [:new, :create]
   end
