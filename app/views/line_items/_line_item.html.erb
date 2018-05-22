@@ -1,8 +1,14 @@
-<tbody>
-	<tr>
-		<td><%= line_item.food_item.name %></td>
-		<td class="text-center"><%= line_item.quantity %></td>
-		<td><%= number_to_currency(line_item.food_item.price, locale: :vi) %></td>
-		<td><%= number_to_currency(line_item.total_price, locale: :vi) %></td>
-	</tr>
-</tbody>
+
+  <li class="list-group-item">  
+    <div class="row">
+      <div class="col-sm-4">
+        <%= line_item.food_item.name %>
+      </div>
+      <div class="col-sm-4">
+        <%= line_item.quantity %>
+      </div>
+      <div class="col-sm-4">
+        <%= number_to_currency(line_item.food_item.price, locale: :vi) %>
+      </div>
+    </div>
+  </li>

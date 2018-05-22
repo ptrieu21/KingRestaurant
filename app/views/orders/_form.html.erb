@@ -1,51 +1,36 @@
 <%= form_for order, :html => {class: "form-horizontal", role: "form"} do |f| %>
-  <div class="row">
-    <div class="col-md-7">
-      <%= render(@cart) %>
+  <%= render 'shared/errors', obj: order %>
+  <div class="form-group">
+    <div class="control-label">
+      <%= f.label :name %> 
     </div>
-
-    <div class="col-md-5">
-    <div class="card">
-    <div class="card-block">
-      <%= render 'shared/errors', obj: order %>
-      <div class="form-group">
-        <div class="control-label">
-          <%= f.label :name %> 
-        </div>
-        <div>
-          <%= f.text_field :name, class: "form-control", autofocus: true %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="control-label">  
-          <%= f.label :email %>
-        </div>
-        <div>
-          <%= f.email_field :email, class: "form-control" %>
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="control-label">  
-          <%= f.label :address %>
-        </div>
-        <div>
-          <%= f.text_area :address, rows: 3, class: "form-control" %>
-        </div>
-      </div>
-
+    <div>
+      <%= f.text_field :name, class: "form-control", autofocus: true %>
     </div>
-    </div>  
+  </div>
+
+  <div class="form-group">
+    <div class="control-label">  
+      <%= f.label :email %>
+    </div>
+    <div>
+      <%= f.email_field :email, class: "form-control" %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="control-label">  
+      <%= f.label :address %>
+    </div>
+    <div>
+      <%= f.text_area :address, rows: 3, class: "form-control" %>
     </div>
   </div>
    
-  <div class="form-group" align="center">
+ 
     <div>
       <%= f.submit("Checkout", class: 'btn btn-outline-primary btn-lg') %>
     </div>
-  <div>
+  
       
-    </div>
-  </div>
 <% end %>

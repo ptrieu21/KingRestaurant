@@ -1,13 +1,35 @@
-<p id="notice"><%= notice %></p>
-<h2>Your Cart</h2>
-<table>
-	<%= render(@cart.line_items) %>
 
-	<tr class="total_line"> 
-		<td colspan="2">Total</td>
-		<td class="total_cell"><%= number_to_currency(@cart.total_price, locale: :vi) %></td>
-	</tr>
-</table>
+<h3>My cart</h3>
 
-<%= button_to "Checkout", new_order_path, method: :get %>
-<%= button_to 'Empty cart', @cart, method: :delete, data: { confirm: 'Are you sure?' } %>
+
+  <div class="row">  
+    <div class="col-md-8">
+      <div class="card">
+        <ul class="list-group list-group-flush">
+          <%= render(@cart.line_items) %>          
+        </ul>
+      </div>
+    </div>  
+    <div class="summary-section col-md-4">
+      <div class="card">
+        <div class="card-body">
+          <p>
+            <span>Subtotal:</span>
+            <span class="float-right"><%= number_to_currency(@cart.total_price, locale: :vi) %></span>
+          </p>
+          <p>
+          
+            <span>Delivery cost:</span>
+            <span class="float-right"><%= number_to_currency(20000, locale: :vi) %></span>
+          </p>
+        </div>
+        <div class="card-footer bg-transparent">
+          <p>
+            <span> Total: </span>
+            <strong class="float-right"><%= number_to_currency(@cart.total_price+20000, locale: :vi) %></strong>
+        </div>
+      </div>
+
+      <%= button_to "Checkout", new_order_path, method: :get, class: "btn btn-lg btn-danger btn-block" %>
+    </div>
+  </div>
