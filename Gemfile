@@ -3,14 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.0'
 
-#Bootstrap
-gem 'bootstrap', '~> 4.1.1'
 
-#Views count
-gem 'impressionist'
-
-#Random name generator
-gem 'faker', '~> 1.7', '>= 1.7.3'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.0'
@@ -27,6 +20,18 @@ gem 'coffee-rails', '~> 4.2'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
+
+#Bootstrap
+gem 'bootstrap', '~> 4.1.1'
+
+#Views count
+gem 'impressionist'
+
+#Random name generator
+gem 'faker', '~> 1.7', '>= 1.7.3'
+
+
+gem "font-awesome-rails"
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

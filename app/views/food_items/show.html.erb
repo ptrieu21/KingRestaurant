@@ -18,13 +18,13 @@
         <div class="card-block">
           <h2 class="card-title"><%= @food_item.name %> - <%= @food_item.cuisine.name %> </h2>
           <p class="card-text">
-        		<%= image_tag("views.png", height: "10")%>
+        		<i class="fa fa-eye"></i>
 						<%= @food_item.impressionist_count %>
             &nbsp;&nbsp;
-            <%= image_tag("comments.png", height: "10")%>
+            <i class="fa fa-comments"></i>
             <%= @food_item.reviews.count %>
             &nbsp;&nbsp;
-            <%= image_tag("star.png", height: "16" )%>
+            <i class="fa fa-star"></i>
             <%= @food_item.average_rate%>
     
         	</p>
