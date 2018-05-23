@@ -9,9 +9,17 @@ class Cart < ApplicationRecord
 			current_item = line_items.build(food_item_id: food_item.id)
 		end
 		current_item
-	end
+  end
+  
+  def shipping_fee
+    20000
+  end
 
+  def sub_total
+    line_items.to_a.sum {|item| item.total_price}
+  end
 	def total_price
-		line_items.to_a.sum {|item| item.total_price}
-	end
+		sub_total + shipping_fee
+  end
+  
 end

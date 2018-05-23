@@ -15,18 +15,18 @@
         <div class="card-body">
           <p>
             <span>Subtotal:</span>
-            <span class="float-right"><%= number_to_currency(@cart.total_price, locale: :vi) %></span>
+            <span class="float-right"><%= number_to_currency(@cart.sub_total, locale: :vi) %></span>
           </p>
           <p>
           
             <span>Delivery cost:</span>
-            <span class="float-right"><%= number_to_currency(20000, locale: :vi) %></span>
+            <span class="float-right"><%= number_to_currency(@cart.shipping_fee, locale: :vi) %></span>
           </p>
         </div>
         <div class="card-footer bg-transparent">
           <p>
             <span> Total: </span>
-            <strong class="float-right"><%= number_to_currency(@cart.total_price+20000, locale: :vi) %></strong>
+            <strong class="float-right"><%= number_to_currency(@cart.total_price, locale: :vi) %></strong>
         </div>
       </div>
 
