@@ -1,7 +1,9 @@
 class CartsController < ApplicationController
 
   def show
-    
+    if @cart.line_items.count < 1
+      redirect_to menu_path
+    end
   end
 
   def create
