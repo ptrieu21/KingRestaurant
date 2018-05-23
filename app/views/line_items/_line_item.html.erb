@@ -6,7 +6,8 @@
         <%= image_tag(line_item.food_item.img_url, class:"img-fluid") %>
       </div>
       <div class="col-sm-4">
-        <%= line_item.food_item.name %>
+        <p><%= line_item.food_item.name %></p>
+        <p><%= link_to "Remove", line_item, method: :delete %></p>
       </div>
      
       <div class="col-sm-3">
@@ -20,11 +21,14 @@
       <%= form_for(line_item, method: :patch) do |f| %>
         <div class="input-group input-group-sm">
           <div class="input-group-prepend">
-            <button class="btn btn-outline-secondary btn-block" type="button">-</button>
+            <%= link_to "-", line_item_decrease_path(line_item), method: :patch, 
+                class: "btn btn-outline-secondary btn-block"%>
           </div>
           <%= f.text_field :quantity, class: "form-control", value: line_item.quantity %>
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary btn-block" type="button">+</button>
+            <%= link_to "+", line_item_increase_path(line_item), method: :patch, 
+                class: "btn btn-outline-secondary btn-block"%>
+          
           </div>
         </div>  
       <% end %> 
